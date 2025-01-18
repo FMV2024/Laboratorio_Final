@@ -1,0 +1,14 @@
+name: WorkFlow de despligue en rama main
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  SCRIPT:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Ejecutando WorkFlow
+        run: | 
+          echo 'Hola Mundo'
