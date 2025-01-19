@@ -5,6 +5,16 @@ on:
       - main
 
 jobs: 
+  SAST:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Set up JDK 17
+        uses: action/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
   BUILD:
     runs-on: ubuntu-latest
     steps:
