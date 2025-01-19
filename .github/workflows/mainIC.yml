@@ -62,6 +62,10 @@ jobs:
           fi
           set -e
 
+      - name: Enable execution gradlew
+        run: | 
+          chmod 777 gradlew
+
       - name: Perform Initial Analysis (if Project Created)
         if: env.project_created == 'true'
         env:
