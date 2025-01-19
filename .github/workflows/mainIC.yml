@@ -7,33 +7,28 @@ on:
 jobs: 
   SAST:
     runs-on: ubuntu-24.04
-    steps:
 
-       - name: SonarCloud Implementación de Proyecto
-        run: |
-          curl -f -X POST -u '${{ secrets.TOKEN_SONAR}}:' 'https://sonarcloud.io/api/projects/create' -d 'name=${{github.event.repository.name }}' -d 'organization=fmv2024' -d 'visibility=public'
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3
 
+        - name: Set Up JDK 17
+          uses: actions/setup-java@v2
+            with:
+              java-version: '17'
+              distribution: 'adopt'
 
-  BUILD:
-    runs-on: ubuntu-24.04
-    steps:
+        - name: Set Enviroment Variables
+          run: echo "BRACH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
 
-      - name: Ejecutando WorkFlow
-        run: | 
-          echo 'Compilando...'
-
-    TESTING:
-    runs-on: ubuntu-24.04
-    steps:
-
-      - name: TESTING
-        run: | 
-          echo 'TESTING'
-
-    DEPLOY:
-    runs-on: ubuntu-24.04
-    steps:
-
-      - name: DEPLOY DSR
-        run: | 
-          echo 'DEPLOY DSR'
+        - name: Validate and Configure build
+          env:
+            TOKEN_SONAR: ${{ secrets.TOKEN_SONAR }}
+          run: |
+             if [ -f "build.gradle"];then
+              echo "Encontrado archivo"
+            else
+              echo "no se encuentra archivo"
+              exit 1
+            fi
+      
