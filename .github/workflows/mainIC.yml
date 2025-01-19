@@ -27,6 +27,9 @@ jobs:
          run: |
             if [ -f "service.yml"]; then
               echo "Encontrado archivo"
+              echo "Verificando configuración del plugin Sonar"
+              if ! grep -q 'id "org.sonarqube" version "3.3"' build.gradle;then
+
             else
               echo "no se encuentra archivo"
               exit 1
