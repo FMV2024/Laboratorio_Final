@@ -23,9 +23,9 @@ jobs:
 
         - name: Validate and Configure build
           env:
-            TOKEN_SONAR: ${{ secrets.TOKEN_SONAR }}
+            SONAR_TOKEN: ${{ secrets.TOKEN_SONAR }}
           run: |
-             if [ -f "build.gradle"];then
+             if [ -f "build.gradle"]; then
               echo "Encontrado archivo"
             else
               echo "no se encuentra archivo"
