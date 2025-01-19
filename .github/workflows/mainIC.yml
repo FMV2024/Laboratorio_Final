@@ -25,7 +25,7 @@ jobs:
          env:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          run: |
-            if [ -f "Dockerfile"]; then
+            if [ -f "service.yml"]; then
               echo "Encontrado archivo"
             else
               echo "no se encuentra archivo"
