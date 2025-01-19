@@ -104,7 +104,7 @@ jobs:
             echo "El proyecto cumple con el Quality Gate y no tiene vulnerabilidades Críticas, Altas o Medias. Continuando sin problemas."
           fi
 
-    SCA:
+  SCA:
     needs: SAST
     runs-on: ubuntu-24.04
     steps:
