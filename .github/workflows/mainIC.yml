@@ -97,7 +97,7 @@ jobs:
               "https://sonarcloud.io/api/issues/search?componentKeys=$REPO_NAME&types=VULNERABILITY&severities=CRITICAL,MEDIUM,BLOCKER" | jq -r '.total // 0')
 
             if [ "$vulnerabilities" -gt 0 ]; then
-              echo "Se encontraron $vulnerabilities vulnerabilidades Críticas, Altas o Medias. El proyecto no cumple con los estándares de seguridad."
+              echo "Se encontraron $vulnerabilities vulnerabilidades Críticas, Altas o Medias, el proyecto no cumple con los estándares de seguridad."
               exit 1
             fi
           else
