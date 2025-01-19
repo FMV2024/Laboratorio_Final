@@ -26,9 +26,9 @@ jobs:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          run: |
             if [ -f "Dockerfile"]; then
-             echo "Encontrado archivo"
-           else
-             echo "no se encuentra archivo"
-             exit 1
+              echo "Encontrado archivo"
+            else
+              echo "no se encuentra archivo"
+              exit 1
            fi
       
