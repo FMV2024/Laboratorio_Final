@@ -19,7 +19,7 @@ jobs:
            distribution: 'adopt'
 
        - name: Set Enviroment Variables
-         run: echo "BRACH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
+         run: echo "BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
 
        - name: Validate and Configure build
          env:
