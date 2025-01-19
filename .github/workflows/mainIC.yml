@@ -5,10 +5,26 @@ on:
       - main
 
 jobs: 
-  SCRIPT:
+  BUILD:
     runs-on: ubuntu-latest
     steps:
 
       - name: Ejecutando WorkFlow
         run: | 
-          echo 'Hola Mundo'
+          echo 'Compilando...'
+
+    TESTING:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: TESTING
+        run: | 
+          echo 'TESTING'
+
+    DEPLOY:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: DEPLOY DSR
+        run: | 
+          echo 'DEPLOY DSR'
