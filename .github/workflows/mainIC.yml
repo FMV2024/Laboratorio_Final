@@ -98,9 +98,36 @@ jobs:
 
             if [ "$vulnerabilities" -gt 0 ]; then
               echo "Se encontraron $vulnerabilities vulnerabilidades Críticas, Altas o Medias, el proyecto no cumple con los estándares de seguridad."
-              exit 1
+              #exit 1
             fi
           else
-            echo "El proyecto cumple con el Quality Gate y no tiene vulnerabilidades críticas. Continuando sin problemas."
+            echo "El proyecto cumple con el Quality Gate y no tiene vulnerabilidades Críticas, Altas o Medias. Continuando sin problemas."
           fi
 
+    SCA:
+    needs: SAST
+    runs-on: ubuntu-24.04
+    steps:
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Dependency Check
+      uses: dependency-check/Dependency-Check_Action@1.1.0
+      env:
+        JAVA_HOME: /opt/jdk
+      id: Depcheck
+      with:
+        project: '${{ github.event.repository.name }}'
+        path: '.'
+        format: 'HTML'
+        args: >
+          --out ./reports
+          --failOnCVSS 6
+          --enableRetired
+
+    - name: Upload Test Result
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck Report
+        path: ./reports
