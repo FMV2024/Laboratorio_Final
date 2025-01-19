@@ -62,7 +62,7 @@ jobs:
           fi
           set -e
 
-- name: Enable execution gradlew
+      - name: Enable execution gradlew
         run: | 
           chmod 777 gradlew
 
