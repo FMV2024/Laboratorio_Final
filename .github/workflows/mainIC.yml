@@ -6,7 +6,7 @@ on:
 
 jobs: 
   SAST:
-    runs-on: ubuntu-
+    runs-on: ubuntu-24.04
 
     steps:
        - name: Checkout Code
