@@ -136,13 +136,13 @@ jobs:
         format: 'HTML'
         args: <
           --out ./reports
-          --failOnCVSS 7
+          --failOnCVSS 6
           --enableRetired
 
     - name: Check for vulnerabilities
       if: steps.Depcheck.outcome == 'failure'
       run: |
-        echo "Vulnerabbilidades detectada mayores CVSS ≥ 6. Ejecucion detenida."
+        echo "Vulnerabbilidades detectada mayores CVSS ≥ 5. Ejecucion detenida."
         exit 1
 
     - name: Continua si no existen vulnerabilidades
