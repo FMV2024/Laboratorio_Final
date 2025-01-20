@@ -194,7 +194,7 @@ jobs:
         docker pull fmv2024/laboratorio_final:lastest
 
     - name: Run Trivy Scan
-      uses: aquasecurity/trivy-actions@master
+      uses: aquasecurity/trivy-action@master
       with:
         image-ref: 'fmv2024/laboratorio_final:lastest'
         format: 'table'
