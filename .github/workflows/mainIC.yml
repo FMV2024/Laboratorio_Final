@@ -121,7 +121,7 @@ jobs:
           ./gradlew build
           ls -R
         else
-          echo "Otro tipo de proyecto"
+          echo "Otro tipo de proyecto."
         fi 
     
     - name: Dependency Check
