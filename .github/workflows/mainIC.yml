@@ -169,7 +169,7 @@ jobs:
 
     - name: Docker Build
       run:  |
-        docker build --tag fmv2024/laboratorio_final:lastest .
+        docker build --tag fmv2024/laboratorio_final
 
     - name: Push Docker
       run:  |
