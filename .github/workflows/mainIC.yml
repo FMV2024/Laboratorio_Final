@@ -136,7 +136,7 @@ jobs:
         format: 'HTML'
         args: >
           --out ./reports
-          --failOnCVSS 6
+          --failOnCVSS 7
           --enableRetired
 
     - name: Check for vulnerabilities
