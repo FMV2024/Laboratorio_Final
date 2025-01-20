@@ -184,10 +184,10 @@ jobs:
      steps:
 
      - name: Docker Login
-      uses: docker/login-action@v3.0.0
-       with:
-         username: ${{ secrets.DOCKER_USER }}
-         password: ${{ secrets.DOCKER_PASSWORD }}
+       uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       
      - name: Pull Docker
        run: |
@@ -195,7 +195,7 @@ jobs:
 
      - name: Run Trivy Scan
        uses: aquasecurity/trivy-actions@master
-       with:
-         image-ref: 'fmv2024/laboratorio_final:lastest'
-         format: 'table'
+        with:
+          image-ref: 'fmv2024/laboratorio_final:lastest'
+          format: 'table'
 
