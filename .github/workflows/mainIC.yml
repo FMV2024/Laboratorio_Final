@@ -135,9 +135,9 @@ jobs:
         path: '.'
         format: 'HTML'
         args: >
-        --out ./reports
-        --failOnCVSS 6
-        --enableRetired
+          --out ./reports
+          --failOnCVSS 6
+          --enableRetired
 
     - name: Check for vulnerabilities
       if: steps.Depcheck.outcome == 'failure'
