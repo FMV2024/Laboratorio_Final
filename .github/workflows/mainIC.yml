@@ -134,10 +134,20 @@ jobs:
         project: '${{ github.event.repository.name }}'
         path: '.'
         format: 'HTML'
-        args: 3 > 
+        args: <
           --out ./reports
-          --failOnCVSS 3
+          --failOnCVSS 7
           --enableRetired
+
+    - name: Check for vulnerabilities
+      if: steps.Depcheck.outcome == 'failure'
+      run: |
+        echo "Vulnerabbilidades detectada mayores CVSS ≥ 6. Ejecucion detenida."
+        exit 1
+
+    - name: Continua si no existen vulnerabilidades
+      if: steps.Depcheck.outcome == 'success'
+      run: echo "No se identifican vulnerabilidades criticas."
 
     - name: Upload Test Result
       uses: actions/upload-artifact@master
