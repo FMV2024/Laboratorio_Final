@@ -98,7 +98,7 @@ jobs:
 
             if [ "$vulnerabilities" -gt 0 ]; then
               echo "Se encontraron $vulnerabilities vulnerabilidades Críticas, Altas o Medias, el proyecto no cumple con los estándares de seguridad."
-              #exit 1
+              exit 1
             fi
           else
             echo "El proyecto cumple con el Quality Gate y no tiene vulnerabilidades Críticas, Altas o Medias. Continuando sin problemas."
