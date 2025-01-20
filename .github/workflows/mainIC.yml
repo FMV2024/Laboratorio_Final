@@ -138,18 +138,10 @@ jobs:
           --out ./reports
           --failOnCVSS 6
           --enableRetired
-
-    - name: Check for vulnerabilities
-      if: steps.Depcheck.outcome == 'failure'
-      run: |
-        echo "Vulnerabbilidades detectada mayores CVSS ≥ 5. Ejecucion detenida."
-        exit 1
-
-    - name: Continua si no existen vulnerabilidades
-      if: steps.Depcheck.outcome == 'success'
-      run: echo "No se identifican vulnerabilidades criticas."
+        
 
     - name: Upload Test Result
+      needs: Depcheck
       uses: actions/upload-artifact@master
       with:
         name: Depcheck Report
