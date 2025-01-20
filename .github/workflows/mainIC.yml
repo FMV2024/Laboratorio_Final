@@ -134,9 +134,9 @@ jobs:
         project: '${{ github.event.repository.name }}'
         path: '.'
         format: 'HTML'
-        args: <
+        args: >
           --out ./reports
-          --failOnCVSS 7
+          --failOnCVSS 3
           --enableRetired
 
     - name: Upload Test Result
