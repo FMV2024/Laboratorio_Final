@@ -165,7 +165,7 @@ jobs:
       uses: actions/download-artifact@master
       with:
         name: JAR
-        path: ${{ github.workspace }}
+        path: ${{github.workspace}}
 
     - name: Docker Build
       run:  |
@@ -173,4 +173,4 @@ jobs:
 
     - name: Push Docker
       run:  |
-        docker push fmv2024/laboratorio_final:lastest
+        docker pull fmv2024/laboratorio_final
