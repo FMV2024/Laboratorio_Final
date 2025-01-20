@@ -1,9 +1,9 @@
-FROM node:19-alpine3.15
+FROM openjdk:11-jre
 
-WORKDIR /reddit-clone
+EXPOSE 8085
 
-COPY . /reddit-clone
-RUN npm install 
+ADD Laboratorio_Final-2.6.0.jar /app/Laboratorio_Final-2.6.0.jar
 
-EXPOSE 3000
-CMD ["npm","run","dev"]
+WORKDIR /app
+
+CMD java -jar Laboratorio_Final-2.6.0.jar
