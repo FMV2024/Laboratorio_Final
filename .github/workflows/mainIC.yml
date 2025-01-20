@@ -91,7 +91,8 @@ jobs:
             "https://sonarcloud.io/api/qualitygates/project_status?analysisId=$analysisId" | jq -r '.projectStatus.status')
 
           if [ "$qualityGateStatus" != "OK" ]; then
-            echo "El proyecto no cumple con el Quality Gate: $qualityGateStatus."
+            echo "El proyecto no cumple con el Quality Gate: $qualityGateStatus. Se detiene despligue.."
+            exit 1
             echo "Verificando vulnerabilidades..."
             vulnerabilities=$(curl -s -u "$SONAR_TOKEN:" \
               "https://sonarcloud.io/api/issues/search?componentKeys=$REPO_NAME&types=VULNERABILITY&severities=CRITICAL,MEDIUM,BLOCKER" | jq -r '.total // 0')
